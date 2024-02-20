@@ -8,35 +8,34 @@ public class WorldGenerating : MonoBehaviour
     private GameObject environment;
     [SerializeField] private GameObject[] mediumAssetsList;
 
-    Vector3 startPosition;
-    Vector3 directionX;
-    Vector3 directionY;
-    int prefabAmount;
-    float distancePrefab;
-    
+    [SerializeField] private Vector3 startPosition;
+    [SerializeField] private Vector3 direction;
+    [SerializeField] private int prefabAmount;
+    [SerializeField] private float distancePrefab;
+    [SerializeField] private float minPrefabSize;
+    [SerializeField] private float maxPrefabSize;
+
     void Start()
     {
-        startPosition = new Vector3(0,0,0);
-        directionX = new Vector3(0, 0, 1);
-        directionY = new Vector3(1, 0, 0);
-
         //Findet das GameObject in der Hierarchie
-        /*environment = GameObject.Find("Environment");
+        environment = GameObject.Find("Environment");
 
-        for (int x = 0; x < 10; x++)
-        {
-             GameObject plant = Instantiate(mediumAssetsList[0], new Vector3(x,0,0), Quaternion.identity);
-             plant.transform.parent = environment.transform;
-        }*/
+        BuildLine(startPosition, direction, prefabAmount, distancePrefab, minPrefabSize, maxPrefabSize);
 
     }
 
-    private void BuildLine(Vector3 startPosition, int prefabAmount, float distancePrefab, Vector3 direction)
+    private void BuildLine(Vector3 startPosition, Vector3 direction, int prefabAmount, float distancePrefab, float minPrefabSize, float maxPrefabSize)
     {        
-        for (int x = 0;x < prefabAmount; x++) 
+        for (int i = 0;i < prefabAmount; i++) 
         {
-            Vector3 position = startPosition + Random.Range(directionX,directionY) * x * distancePrefab;
-        }
+            Vector3 position = startPosition + direction * i * distancePrefab;
+
+            //
+            GameObject randomPrefab = mediumAssetsList[Random.Range(0, mediumAssetsList.Length)];
+
+
+            GameObject plant = Instantiate(randomPrefab, position, randomPrefab.transform.rotation, environment.transform);
+        }        
     }
 }
 

@@ -345,6 +345,12 @@ MonoBehaviour:
   - {fileID: 1742901690041852, guid: cc59f3faa1927724295afa34257926f9, type: 3}
   - {fileID: 1186895167238064, guid: d7509b3f716acc4479707fd176053311, type: 3}
   - {fileID: 1941568499870630, guid: 4c65c362d8007bd49b543e018d6efe83, type: 3}
+  startPosition: {x: 0, y: 0, z: 0}
+  direction: {x: 0, y: 0, z: 0}
+  prefabAmount: 10
+  distancePrefab: 1.5
+  minPrefabSize: 0.5
+  maxPrefabSize: 2
 --- !u!4 &1966052806
 Transform:
   m_ObjectHideFlags: 0
