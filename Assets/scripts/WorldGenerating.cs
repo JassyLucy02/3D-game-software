@@ -30,7 +30,7 @@ public class WorldGenerating : MonoBehaviour
         {
             Vector3 position = startPosition + direction * i * distancePrefab;
 
-            //
+            
             GameObject randomPrefab = mediumAssetsList[Random.Range(0, mediumAssetsList.Length)];
 
 
