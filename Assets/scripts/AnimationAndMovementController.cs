@@ -90,8 +90,6 @@ public class AnimationAndMovementController : MonoBehaviour
             {
                 currentMovement.x = -transform.forward.x;
                 currentMovement.z = -transform.forward.z;
-                //currentRunMovement.x = -transform.forward.x * runMultiplier;
-                //currentRunMovement.z = -transform.forward.z * runMultiplier;
             }
         }
         else
@@ -111,16 +109,7 @@ public class AnimationAndMovementController : MonoBehaviour
         {
             characterController.Move(currentMovement * Time.deltaTime);
         }
-
-
-        //Dancing
-        if (isDancingPressed && isMovePressed) 
-        {
-            currentMovement.x = 0;
-            currentMovement.z = 0;
-        }
     }
-
     private void HandleRotation()
     {
         if (isTurnPressed)
@@ -146,7 +135,6 @@ public class AnimationAndMovementController : MonoBehaviour
     {
         bool isWalking = animator.GetBool("isWalking");
         bool isRunning = animator.GetBool("isRunning");
-        bool isDancing = animator.GetBool("isDancing");
 
         if ((isMovePressed || isTurnPressed) && !isWalking)
         {
@@ -166,14 +154,9 @@ public class AnimationAndMovementController : MonoBehaviour
             animator.SetBool("isRunning", false);
         }
 
-        //Dancing
-        if (isDancingPressed && !isDancing)
+        if (isDancingPressed)
         {
-            animator.SetBool("isDancing", true);
-        }
-        else if (!isDancingPressed)
-        {
-            animator.SetBool("isDancing", false);
+            animator.SetTrigger("Dancing");
         }
     }
 

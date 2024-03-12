@@ -5,27 +5,27 @@ using UnityEngine.AI;
 
 public class EnemyNavigationAndAnimation : MonoBehaviour
 {
-    private NavMeshAgent agent;
+    private NavMeshAgent enemy;
     private Animator animator;
 
     [SerializeField] [Tooltip ("Parent of the navigation objects")]
     private Transform route;
 
     private Vector3[] targetPositions;
-    private int destinationIndex = 0;
+    private int targetPositionIndex = 0;
 
     //Instanzierung der Route
     private void Start()
     {
-        agent = GetComponent<NavMeshAgent>();
+        enemy = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
 
         if(route != null)
         {
             InitRoute();
-            agent.destination = targetPositions[destinationIndex];
+            enemy.destination = targetPositions[targetPositionIndex];
         }
 
-        agent.destination = targetPositions[destinationIndex];
     }
 
 
@@ -39,6 +39,23 @@ public class EnemyNavigationAndAnimation : MonoBehaviour
         {
             targetPositions[i] = route.GetChild(i).position;
         }
+    }
+
+    private void Update()
+    {          
+        if(enemy.remainingDistance < 2) 
+        { 
+            if(targetPositionIndex < targetPositions.Length) 
+            {
+                targetPositionIndex++;
+            }
+            else
+            {
+                targetPositionIndex = 0;
+            }
+        }
+
+        enemy.destination = targetPositions[targetPositionIndex];
     }
 
 }
