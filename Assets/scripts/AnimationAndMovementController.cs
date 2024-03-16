@@ -17,23 +17,31 @@ public class AnimationAndMovementController : MonoBehaviour
     private bool isMovePressed;
     private bool isTurnPressed;
     private bool isRunPressed;
-    private bool isDancingPressed;
+    private bool isJumpPressed;
+    private bool isDancing;
 
     private float rotationSpeed = 2.0f;
     [SerializeField] private float runMultiplier;
-    [SerializeField] private float walkSpeed;
+    private float walkSpeed = 1.5f;
+
+        /*private float initialJumpVelocity;
+        private float maxJumpHeight = 1.0f;
+        private float maxJumpTime = 0.5f;
+        private bool isJumping = false;*/
 
     private float groundedGravity = -0.05f;
     private float gravity = -9.8f;
 
     private void Awake()
     {
-        //Instanzieren eines neuen Objekts für PlayerInputs
+        //Instanzieren eines neuen Objekts für PlayerInput
         playerInput = new PlayerInput();
 
         //Zugriff auf CharacterController & Animator
         characterController = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
+
+            //InitJumpVariables();
 
         //Wenn ein Move Input vom Spieler ausgeführt wird soll die OnMove Methode ausgeführt werden -> Callback/Listener
         playerInput.CharacterControls.Move.started += OnMove;
@@ -42,6 +50,9 @@ public class AnimationAndMovementController : MonoBehaviour
 
         playerInput.CharacterControls.Run.started += OnRun;
         playerInput.CharacterControls.Run.canceled += OnRun;
+
+        playerInput.CharacterControls.Dance.started += OnJump;
+        playerInput.CharacterControls.Dance.canceled += OnJump;
 
         playerInput.CharacterControls.Dance.started += OnDance;
         playerInput.CharacterControls.Dance.canceled += OnDance;
@@ -53,28 +64,36 @@ public class AnimationAndMovementController : MonoBehaviour
         HandleRotation();
         HandleAnimation();
         HandleGravity();
+            //HandleJump();
     }
 
-
+    //Überprüfung ob die PlayerInputs ausgeführt werden und dem entsprechend aktualisiert werden
     public void OnMove(InputAction.CallbackContext context)
     {
-        //Die Move Inputs werden
         currentMovementInput = context.ReadValue<Vector2>();
         isMovePressed = currentMovementInput.y != 0;
         isTurnPressed = currentMovementInput.x != 0;
     }
 
-    //Überprüfung ob der RunInput ausgeführt wird und dem entsprechend aktualisiert
+    
     private void OnRun(InputAction.CallbackContext context) 
     {
         isRunPressed = context.ReadValueAsButton();
     }
 
-    private void OnDance(InputAction.CallbackContext context)
+    private void OnJump(InputAction.CallbackContext context)
     {
-        isDancingPressed = context.ReadValueAsButton();
+        isJumpPressed = context.ReadValueAsButton();
     }
 
+    private void OnDance(InputAction.CallbackContext context)
+    {
+        isDancing = context.ReadValueAsButton();    
+    }
+
+    //Immer wenn der Move Input soll der Charakter sich bewegen
+    //Wenn der input größer als null ausfällt wird current(Run)Movement an eine neue position übermittelt
+    //dies wird mit dem walkSpeed oder dem RunMultiplier zusammen multipliziert
     private void HandleMovement()
     {
         if (isMovePressed)
@@ -92,6 +111,7 @@ public class AnimationAndMovementController : MonoBehaviour
                 currentMovement.z = -transform.forward.z;
             }
         }
+        //Default wert liegt bei  0 dementsprechend steht der charakter
         else
         {
             currentMovement.x = 0;
@@ -99,7 +119,6 @@ public class AnimationAndMovementController : MonoBehaviour
             currentRunMovement.x = 0;
             currentRunMovement.z = 0;
         }
-
 
         if (isRunPressed) 
         { 
@@ -131,6 +150,30 @@ public class AnimationAndMovementController : MonoBehaviour
         }
     }
 
+        //Der Jump ist abhängig von der Sprunghöhe und der Sprungdauer
+        //Hierzu muss eine Formel genutzt werden die auf beide Faktoren eingehen
+
+        /*private void InitJumpVariables()
+        {
+            float timeToAppex = 0.5f * maxJumpTime;
+            gravity = (-2 * maxJumpHeight)/ Mathf.Pow(timeToAppex, 2);
+            initialJumpVelocity = (2 * maxJumpHeight) / timeToAppex;
+        }
+
+        private void HandleJump()
+        {
+            if (!isJumping && characterController.isGrounded && isJumpPressed)
+            {
+                isJumping = true;
+                currentMovement.y = initialJumpVelocity;
+                currentRunMovement.y = initialJumpVelocity;
+            }
+            else if (!isJumpPressed && isJumping && characterController.isGrounded)
+            {
+                isJumping = false;
+            }
+        }*/
+
     private void HandleAnimation()
     {
         bool isWalking = animator.GetBool("isWalking");
@@ -154,7 +197,7 @@ public class AnimationAndMovementController : MonoBehaviour
             animator.SetBool("isRunning", false);
         }
 
-        if (isDancingPressed)
+        if (isDancing)
         {
             animator.SetTrigger("Dancing");
         }
@@ -173,6 +216,12 @@ public class AnimationAndMovementController : MonoBehaviour
         {
             currentMovement.y += gravity * Time.deltaTime;
             currentRunMovement.y += gravity * Time.deltaTime;
+
+                /*float previousYVelocity = currentMovement.y;
+                float newYVelocity = currentMovement.y + gravity * Time.deltaTime;
+                float nextYVelocity = previousYVelocity + newYVelocity * .5f;
+                currentMovement.y += nextYVelocity;
+                currentRunMovement.y += nextYVelocity;*/
         }
     }
 

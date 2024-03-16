@@ -172,7 +172,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   runMultiplier: 3
-  walkSpeed: 1.5
 --- !u!4 &137074274 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c9f78b292f9b39a49ba67dd500c70134, type: 3}
@@ -325,7 +324,6 @@ GameObject:
   m_Component:
   - component: {fileID: 345294110}
   - component: {fileID: 345294112}
-  - component: {fileID: 345294111}
   m_Layer: 0
   m_Name: Cube (2)
   m_TagString: Untagged
@@ -348,48 +346,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1167503565}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &345294111
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 345294109}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &345294112
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1014,7 +970,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1196865293}
   - component: {fileID: 1196865295}
-  - component: {fileID: 1196865294}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -1037,48 +992,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1167503565}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &1196865294
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1196865292}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1196865295
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1102,7 +1015,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1319825543}
   - component: {fileID: 1319825545}
-  - component: {fileID: 1319825544}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -1125,48 +1037,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1167503565}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &1319825544
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1319825542}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1319825545
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1486,6 +1356,7 @@ GameObject:
   - component: {fileID: 1966052809}
   - component: {fileID: 1966052808}
   - component: {fileID: 1966052807}
+  - component: {fileID: 1966052810}
   m_Layer: 0
   m_Name: Environment
   m_TagString: Untagged
@@ -1505,19 +1376,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31ffda7d6a3f86b49837a3706e6cdebc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mediumAssetsList:
-  - {fileID: 5127935813079523073, guid: b0caf8f2b511ed948be263d59a83cd1c, type: 3}
-  - {fileID: 4049231906913572306, guid: 92708350b8f04c840ab5aedfdaf0a9ba, type: 3}
-  - {fileID: 8736115590795592677, guid: 26ff2760dcd37464996eaee30729de1b, type: 3}
-  - {fileID: 9120426635959654188, guid: 110ab91f45d8a214a8062042ed7b6841, type: 3}
-  - {fileID: 3497825398378072962, guid: 0364b6d6608ccec43a15f0fd7290ccb1, type: 3}
-  - {fileID: 1087727138527155070, guid: 6bf8783a9e4bced489d2f62821a6ff92, type: 3}
+  nameObject: stone line
+  prefabList:
+  - {fileID: 1742901690041852, guid: cc59f3faa1927724295afa34257926f9, type: 3}
+  - {fileID: 1186895167238064, guid: d7509b3f716acc4479707fd176053311, type: 3}
+  - {fileID: 1941568499870630, guid: 4c65c362d8007bd49b543e018d6efe83, type: 3}
+  - {fileID: 1301339122039952, guid: 71594090eb3d11d4c909235505df6cbd, type: 3}
   startPosition: {x: -10, y: 0, z: 10}
   direction: {x: 1, y: 0, z: 0}
   prefabAmount: 20
   distancePrefab: 1
-  minPrefabSize: 1.5
+  minPrefabSize: 0.5
   maxPrefabSize: 2
+  rotation: 270
+  widthField: 0
+  randomRotation: 1
+  createField: 0
 --- !u!4 &1966052806
 Transform:
   m_ObjectHideFlags: 0
@@ -1545,19 +1419,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31ffda7d6a3f86b49837a3706e6cdebc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mediumAssetsList:
-  - {fileID: 5127935813079523073, guid: b0caf8f2b511ed948be263d59a83cd1c, type: 3}
-  - {fileID: 4049231906913572306, guid: 92708350b8f04c840ab5aedfdaf0a9ba, type: 3}
-  - {fileID: 8736115590795592677, guid: 26ff2760dcd37464996eaee30729de1b, type: 3}
-  - {fileID: 9120426635959654188, guid: 110ab91f45d8a214a8062042ed7b6841, type: 3}
-  - {fileID: 3497825398378072962, guid: 0364b6d6608ccec43a15f0fd7290ccb1, type: 3}
-  - {fileID: 1087727138527155070, guid: 6bf8783a9e4bced489d2f62821a6ff92, type: 3}
+  nameObject: stone line
+  prefabList:
+  - {fileID: 1941568499870630, guid: 4c65c362d8007bd49b543e018d6efe83, type: 3}
+  - {fileID: 1941568499870630, guid: 4c65c362d8007bd49b543e018d6efe83, type: 3}
+  - {fileID: 1941568499870630, guid: 4c65c362d8007bd49b543e018d6efe83, type: 3}
+  - {fileID: 1941568499870630, guid: 4c65c362d8007bd49b543e018d6efe83, type: 3}
   startPosition: {x: -10, y: 0, z: -10}
   direction: {x: 0, y: 0, z: 1}
   prefabAmount: 20
   distancePrefab: 1
-  minPrefabSize: 1.5
+  minPrefabSize: 0.5
   maxPrefabSize: 2
+  rotation: 270
+  widthField: 0
+  randomRotation: 1
+  createField: 0
 --- !u!114 &1966052808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1570,19 +1447,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31ffda7d6a3f86b49837a3706e6cdebc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mediumAssetsList:
-  - {fileID: 5127935813079523073, guid: b0caf8f2b511ed948be263d59a83cd1c, type: 3}
-  - {fileID: 4049231906913572306, guid: 92708350b8f04c840ab5aedfdaf0a9ba, type: 3}
-  - {fileID: 8736115590795592677, guid: 26ff2760dcd37464996eaee30729de1b, type: 3}
-  - {fileID: 9120426635959654188, guid: 110ab91f45d8a214a8062042ed7b6841, type: 3}
-  - {fileID: 3497825398378072962, guid: 0364b6d6608ccec43a15f0fd7290ccb1, type: 3}
-  - {fileID: 1087727138527155070, guid: 6bf8783a9e4bced489d2f62821a6ff92, type: 3}
+  nameObject: stone line
+  prefabList:
+  - {fileID: 1941568499870630, guid: 4c65c362d8007bd49b543e018d6efe83, type: 3}
+  - {fileID: 1186895167238064, guid: d7509b3f716acc4479707fd176053311, type: 3}
+  - {fileID: 1742901690041852, guid: cc59f3faa1927724295afa34257926f9, type: 3}
+  - {fileID: 1301339122039952, guid: 71594090eb3d11d4c909235505df6cbd, type: 3}
   startPosition: {x: 10, y: 0, z: -10}
   direction: {x: -1, y: 0, z: 0}
   prefabAmount: 20
   distancePrefab: 1
-  minPrefabSize: 1.5
+  minPrefabSize: 0.5
   maxPrefabSize: 2
+  rotation: 270
+  widthField: 0
+  randomRotation: 1
+  createField: 0
 --- !u!114 &1966052809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1595,19 +1475,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31ffda7d6a3f86b49837a3706e6cdebc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mediumAssetsList:
-  - {fileID: 5127935813079523073, guid: b0caf8f2b511ed948be263d59a83cd1c, type: 3}
-  - {fileID: 4049231906913572306, guid: 92708350b8f04c840ab5aedfdaf0a9ba, type: 3}
-  - {fileID: 8736115590795592677, guid: 26ff2760dcd37464996eaee30729de1b, type: 3}
-  - {fileID: 9120426635959654188, guid: 110ab91f45d8a214a8062042ed7b6841, type: 3}
-  - {fileID: 3497825398378072962, guid: 0364b6d6608ccec43a15f0fd7290ccb1, type: 3}
-  - {fileID: 1087727138527155070, guid: 6bf8783a9e4bced489d2f62821a6ff92, type: 3}
+  nameObject: stone line
+  prefabList:
+  - {fileID: 1742901690041852, guid: cc59f3faa1927724295afa34257926f9, type: 3}
+  - {fileID: 1186895167238064, guid: d7509b3f716acc4479707fd176053311, type: 3}
+  - {fileID: 1941568499870630, guid: 4c65c362d8007bd49b543e018d6efe83, type: 3}
+  - {fileID: 1301339122039952, guid: 71594090eb3d11d4c909235505df6cbd, type: 3}
   startPosition: {x: 10, y: 0, z: 10}
   direction: {x: 0, y: 0, z: -1}
   prefabAmount: 20
   distancePrefab: 1
-  minPrefabSize: 1.5
+  minPrefabSize: 0.5
   maxPrefabSize: 2
+  rotation: 270
+  widthField: 0
+  randomRotation: 1
+  createField: 0
+--- !u!114 &1966052810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1966052804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31ffda7d6a3f86b49837a3706e6cdebc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameObject: grass field
+  prefabList:
+  - {fileID: 1022851111684334, guid: b1a28fdf01fc76c44a1d9df0db6f8f98, type: 3}
+  - {fileID: 1217445217580466, guid: 17e0e5a2bcd548e4aa7bc11dd7b959d1, type: 3}
+  - {fileID: 1749077194531976, guid: 3842725ff6b24b44b91f9141f55e89cb, type: 3}
+  - {fileID: 1428614132326758, guid: 7dd78763848e7c044b4cd04af832e833, type: 3}
+  startPosition: {x: -4, y: 0, z: 5}
+  direction: {x: 1, y: 0, z: 0}
+  prefabAmount: 15
+  distancePrefab: 1
+  minPrefabSize: 1
+  maxPrefabSize: 1.5
+  rotation: 0
+  widthField: 4
+  randomRotation: 0
+  createField: 1
 --- !u!1 &2030160835
 GameObject:
   m_ObjectHideFlags: 0

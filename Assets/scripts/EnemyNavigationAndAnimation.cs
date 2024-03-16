@@ -42,7 +42,13 @@ public class EnemyNavigationAndAnimation : MonoBehaviour
     }
 
     private void Update()
-    {          
+    {
+        EnemyMovement();
+    }
+
+
+    private void EnemyMovement()
+    {
         if(enemy.remainingDistance < 2) 
         { 
             if(targetPositionIndex < targetPositions.Length) 
@@ -57,5 +63,5 @@ public class EnemyNavigationAndAnimation : MonoBehaviour
 
         enemy.destination = targetPositions[targetPositionIndex];
     }
-
+ 
 }
