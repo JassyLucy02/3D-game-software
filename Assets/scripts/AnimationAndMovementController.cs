@@ -24,10 +24,10 @@ public class AnimationAndMovementController : MonoBehaviour
     [SerializeField] private float runMultiplier;
     private float walkSpeed = 1.5f;
 
-        /*private float initialJumpVelocity;
-        private float maxJumpHeight = 1.0f;
-        private float maxJumpTime = 0.5f;
-        private bool isJumping = false;*/
+    private float initialJumpVelocity;
+    private float maxJumpHeight = 1.0f;
+    private float maxJumpTime = 0.5f;
+    private bool isJumping = false;
 
     private float groundedGravity = -0.05f;
     private float gravity = -9.8f;
@@ -41,7 +41,7 @@ public class AnimationAndMovementController : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
 
-            //InitJumpVariables();
+        InitJumpVariables();
 
         //Wenn ein Move Input vom Spieler ausgeführt wird soll die OnMove Methode ausgeführt werden -> Callback/Listener
         playerInput.CharacterControls.Move.started += OnMove;
@@ -51,8 +51,11 @@ public class AnimationAndMovementController : MonoBehaviour
         playerInput.CharacterControls.Run.started += OnRun;
         playerInput.CharacterControls.Run.canceled += OnRun;
 
-        playerInput.CharacterControls.Dance.started += OnJump;
-        playerInput.CharacterControls.Dance.canceled += OnJump;
+       
+        //playerInput.CharacterControls.Dance.started += OnJump;
+        //playerInput.CharacterControls.Dance.canceled += OnJump;
+        playerInput.CharacterControls.Jump.started += OnJump; //Korrektur
+        playerInput.CharacterControls.Jump.canceled += OnJump; //Korrektur
 
         playerInput.CharacterControls.Dance.started += OnDance;
         playerInput.CharacterControls.Dance.canceled += OnDance;
@@ -64,7 +67,7 @@ public class AnimationAndMovementController : MonoBehaviour
         HandleRotation();
         HandleAnimation();
         HandleGravity();
-            //HandleJump();
+        HandleJump();
     }
 
     //Überprüfung ob die PlayerInputs ausgeführt werden und dem entsprechend aktualisiert werden
@@ -153,7 +156,7 @@ public class AnimationAndMovementController : MonoBehaviour
         //Der Jump ist abhängig von der Sprunghöhe und der Sprungdauer
         //Hierzu muss eine Formel genutzt werden die auf beide Faktoren eingehen
 
-        /*private void InitJumpVariables()
+        private void InitJumpVariables()
         {
             float timeToAppex = 0.5f * maxJumpTime;
             gravity = (-2 * maxJumpHeight)/ Mathf.Pow(timeToAppex, 2);
@@ -167,12 +170,13 @@ public class AnimationAndMovementController : MonoBehaviour
                 isJumping = true;
                 currentMovement.y = initialJumpVelocity;
                 currentRunMovement.y = initialJumpVelocity;
+                animator.SetTrigger("Jumping"); //Korrektur
             }
             else if (!isJumpPressed && isJumping && characterController.isGrounded)
             {
                 isJumping = false;
             }
-        }*/
+        }
 
     private void HandleAnimation()
     {

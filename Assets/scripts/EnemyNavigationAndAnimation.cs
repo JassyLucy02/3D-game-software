@@ -51,17 +51,18 @@ public class EnemyNavigationAndAnimation : MonoBehaviour
     {
         if(enemy.remainingDistance < 2) 
         { 
-            if(targetPositionIndex < targetPositions.Length) 
-            {
-                targetPositionIndex++;
-            }
-            else
+        
+            targetPositionIndex++;
+          
+            if (targetPositionIndex == targetPositions.Length)
             {
                 targetPositionIndex = 0;
             }
+
+            enemy.destination = targetPositions[targetPositionIndex];
         }
 
-        enemy.destination = targetPositions[targetPositionIndex];
+        
     }
  
 }
