@@ -15,7 +15,8 @@ public class EnemyNavigationAndAnimation : MonoBehaviour
     private Vector3[] targetPositions;
     private int targetPositionIndex = 0;
 
-
+    enum CurrentState { Idling, Patrolling, Hunting, Attacking, Cooldown}
+    private CurrentState currentstate;
 
     //Instanzierung der Route
     private void Start()
@@ -28,9 +29,7 @@ public class EnemyNavigationAndAnimation : MonoBehaviour
             InitRoute();
             StartCoroutine(Patroul());
         }
-
     }
-
 
     private void InitRoute()
     {
@@ -43,6 +42,8 @@ public class EnemyNavigationAndAnimation : MonoBehaviour
             targetPositions[i] = route.GetChild(i).position;
         }
     }
+
+    //
 
     private void Update()
     {
@@ -59,19 +60,29 @@ public class EnemyNavigationAndAnimation : MonoBehaviour
 
     private IEnumerator Patroul()
     {
+        currentstate = CurrentState.Patrolling;
         enemy.isStopped = false;
         animator.SetBool("IsEnemyWalk", true);
         enemy.destination = targetPositions[targetPositionIndex];
-        yield return new WaitForSeconds(Random.Range(30, 90));
+        yield return new WaitForSeconds(Random.Range(30, 60));
         StartCoroutine(PauseEnemy());
     }
 
     private IEnumerator PauseEnemy()
     {
+        currentstate = CurrentState.Idling;
         enemy.isStopped = true;
         animator.SetBool("IsEnemyWalk", false);
         yield return new WaitForSeconds(Random.Range(10, 30));
         StartCoroutine(Patroul());
+    }
+
+    public IEnumerator HuntPlayer()
+    {
+        currentstate = CurrentState.Hunting;
+        enemy.isStopped = false;
+        
+        if()
     }
 }
 
