@@ -8,11 +8,14 @@ public class EnemyNavigationAndAnimation : MonoBehaviour
     private NavMeshAgent enemy;
     private Animator animator;
 
-    [SerializeField] [Tooltip ("Parent of the navigation objects")]
+    [SerializeField]
+    [Tooltip("Parent of the navigation objects")]
     private Transform route;
 
     private Vector3[] targetPositions;
     private int targetPositionIndex = 0;
+
+
 
     //Instanzierung der Route
     private void Start()
@@ -20,10 +23,10 @@ public class EnemyNavigationAndAnimation : MonoBehaviour
         enemy = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
 
-        if(route != null)
+        if (route != null)
         {
             InitRoute();
-            enemy.destination = targetPositions[targetPositionIndex];
+            StartCoroutine(Patroul());
         }
 
     }
@@ -43,26 +46,32 @@ public class EnemyNavigationAndAnimation : MonoBehaviour
 
     private void Update()
     {
-        EnemyMovement();
-    }
-
-
-    private void EnemyMovement()
-    {
-        if(enemy.remainingDistance < 2) 
-        { 
-        
+        if (enemy.remainingDistance < 2)
+        {
             targetPositionIndex++;
-          
             if (targetPositionIndex == targetPositions.Length)
             {
                 targetPositionIndex = 0;
             }
-
             enemy.destination = targetPositions[targetPositionIndex];
         }
-
-        
     }
- 
+
+    private IEnumerator Patroul()
+    {
+        enemy.isStopped = false;
+        animator.SetBool("IsEnemyWalk", true);
+        enemy.destination = targetPositions[targetPositionIndex];
+        yield return new WaitForSeconds(Random.Range(30, 90));
+        StartCoroutine(PauseEnemy());
+    }
+
+    private IEnumerator PauseEnemy()
+    {
+        enemy.isStopped = true;
+        animator.SetBool("IsEnemyWalk", false);
+        yield return new WaitForSeconds(Random.Range(10, 30));
+        StartCoroutine(Patroul());
+    }
 }
+
